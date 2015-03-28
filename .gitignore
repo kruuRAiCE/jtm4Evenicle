@@ -6,6 +6,15 @@
 *.user
 *.sln.docstates
 
+JoyToAny.sln
+修正項目.txt
+ctrlImageLiseView.*
+frmImageMapEditor.*
+DirectDraw.cs
+DynamicJson.cs
+LowLevelHotKey.cs
+NO_USE/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

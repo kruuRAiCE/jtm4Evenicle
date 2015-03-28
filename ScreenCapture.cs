@@ -89,6 +89,14 @@ namespace JoyToAny
             }
         }
         private static IntPtr windowHandle = IntPtr.Zero;
+
+        public static Rectangle PrimaryScreenBounds
+        {
+            get
+            {
+                return System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+            }
+        }
         public static Rectangle WindowPos
         {
             get
@@ -257,7 +265,6 @@ namespace JoyToAny
                 w32.GetWindowRect(WindowHandle, ref w32Rect);
                 Rectangle rect = new Rectangle(w32Rect.Left, w32Rect.Top, w32Rect.Right - w32Rect.Left, w32Rect.Bottom - w32Rect.Top);
 
-                Rectangle PrimaryScreenBounds = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 if (PrimaryScreenBounds.Equals(rect))
                 {
                     IsFullScreen = true;

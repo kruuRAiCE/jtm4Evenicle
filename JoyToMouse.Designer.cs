@@ -118,8 +118,8 @@
             this.chkAutoSave = new System.Windows.Forms.CheckBox();
             this.cmbCaptureMethod = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1311,16 +1311,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "イブニクル固有設定";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 18);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(210, 16);
-            this.checkBox1.TabIndex = 74;
-            this.checkBox1.Text = "右クリックで戻れるなら戻る系ボタン無効";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -1331,6 +1321,17 @@
             this.checkBox2.TabIndex = 75;
             this.checkBox2.Text = "戦闘開始時に自動でオート戦闘On";
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(6, 18);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(210, 16);
+            this.checkBox1.TabIndex = 74;
+            this.checkBox1.Text = "右クリックで戻れるなら戻る系ボタン無効";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // JoyToMouse
             // 

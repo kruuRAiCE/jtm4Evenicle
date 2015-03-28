@@ -114,6 +114,7 @@ namespace JoyToAny
                 isSuccess = true;
                 try
                 {
+                    Dictionary<string, byte> config = new Dictionary<string, byte>();
                     // SJISでファイルを開く
                     using (System.IO.StreamReader sr = new System.IO.StreamReader(configPath, System.Text.Encoding.GetEncoding(932)))
                     {
@@ -123,25 +124,44 @@ namespace JoyToAny
                         {
                             lineNo++;
 
-                            if (byte.TryParse(sr.ReadLine().Trim(), out num))
+                            string[] items = sr.ReadLine().Trim().Split('\t');
+                            if (items.Length == 2)
                             {
-                                if (lineNo <= 32)
+                                if (byte.TryParse(items[1], out num))
                                 {
-                                    JoyToAny.Properties.Settings.Default["cmb" + (lineNo).ToString()] = num;
-                                }
-                                else
-                                {
-                                    switch (lineNo)
+                                    string key = items[0].Trim();
+                                    if (config.ContainsKey(key) == false)
                                     {
-                                        case 33:
-                                            JoyToAny.Properties.Settings.Default["cmbXY1"] = num;
-                                            break;
-                                        case 34:
-                                            JoyToAny.Properties.Settings.Default["cmbXY2"] = num;
-                                            break;
+                                        config.Add(key, num);
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    for (int lineNo = 1; lineNo <= 32; lineNo++)
+                    {
+                        string key = string.Format("cmb{0}", lineNo);
+                        if (config.ContainsKey(key))
+                        {
+                            JoyToAny.Properties.Settings.Default[key] = config[key];
+                        }
+
+                    }
+                    if (config.ContainsKey("cmbXY1"))
+                    {
+                        JoyToAny.Properties.Settings.Default["cmbXY1"] = config["cmbXY1"];
+                    }
+                    if (config.ContainsKey("cmbXY1"))
+                    {
+                        JoyToAny.Properties.Settings.Default["cmbXY2"] = config["cmbXY2"];
+                    }
+
+                    if (config.ContainsKey("cmbCaptureInterval"))
+                    {
+                        if (config["cmbCaptureInterval"] < cmbCaptureInterval.Items.Count)
+                        {
+                            cmbCaptureInterval.SelectedIndex = config["cmbCaptureInterval"];
                         }
                     }
                 }
@@ -193,13 +213,15 @@ namespace JoyToAny
             {
                 using (System.IO.StreamWriter sw = new System.IO.StreamWriter(configPath))
                 {
+                    sw.WriteLine(string.Format("{0}\t{1}", cmbCaptureInterval.Name, cmbCaptureInterval.SelectedIndex));
+
                     for (int i = 0; i < buttons.Length; i++)
                     {
-                        sw.WriteLine(buttons[i].SelectedValue.ToString());
+                        sw.WriteLine(string.Format("{0}\t{1}", buttons[i].Name, buttons[i].SelectedValue.ToString()));
                     }
                     for (int i = 0; i < ana_xys.Length; i++)
                     {
-                        sw.WriteLine(ana_xys[i].SelectedValue.ToString());
+                        sw.WriteLine(string.Format("{0}\t{1}", ana_xys[i].Name, ana_xys[i].SelectedValue.ToString()));
                     }
                 }
             }
@@ -406,7 +428,7 @@ namespace JoyToAny
 
                     if (chkAutoSave.Checked == true)
                     {
-                        if (txtPosName.Text == "不明")
+                        if (txtPosName.Text == "不明" && ScreenCapture.IsWindowActive == true)
                         {
                             TimeSpan span = now - lastKown;
                             if (span.TotalSeconds > 5f * (snapCount + 1))
@@ -425,14 +447,13 @@ namespace JoyToAny
                         }
                     }
 
-
                     bool freeNG = false;
                     try
                     {
 #if WITHMANAGER
                         if (frmEdit != null && nextSnap == true)
                         {
-                            if (nextSnap)
+                            if (nextSnap && ScreenCapture.IsWindowActive == true)
                             {
                                 frmEdit.saveNextSnap = true;
                                 JoyPad.SnapShot = false;
@@ -653,6 +674,8 @@ namespace JoyToAny
             cmbCaptureMethod.ValueMember = "Value";
             cmbCaptureMethod.SelectedIndexChanged += new System.EventHandler(cmbCaptureMethod_SelectedIndexChanged);
 
+            // 自動キャプチャ開始
+            cmbCaptureInterval.SelectedIndex = 1;
             loadConfig();
 
             // ジョイスティック一覧を取得してドロップダウンにセット
@@ -672,8 +695,6 @@ namespace JoyToAny
                 }
             }
 
-            // 自動キャプチャ開始
-            cmbCaptureInterval.SelectedIndex = 1;
 
         }
 
