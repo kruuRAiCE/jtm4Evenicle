@@ -11,6 +11,7 @@
 **/
 using System;
 using System.Drawing;
+using System.Windows.Forms;
 using Microsoft.DirectX.DirectInput;
 using Common;
 
@@ -300,7 +301,7 @@ namespace JoyToAny
         /// キーの状態の記憶
         /// </summary>
         private static bool[] lastState = new bool[256];
-
+        public static bool[] KeyState = new bool[256];
         private static bool isRunning = false;
 
         /// <summary>
@@ -490,6 +491,41 @@ namespace JoyToAny
                         aState[AnalogMapL, 2] = AnalogMapL;
                     }
                 }
+
+                // キーボード状態チェック
+                if (ImageMap.curSceneName == "@フィールド")
+                {
+                    int xMove = 0;
+                    int yMove = 0;
+                    if (KeyState[(int)Keys.NumPad8]) { yMove -= 1; }
+                    if (KeyState[(int)Keys.NumPad6]) { xMove += 1; }
+                    if (KeyState[(int)Keys.NumPad2]) { yMove += 1; }
+                    if (KeyState[(int)Keys.NumPad4]) { xMove -= 1; }
+                    if ((aState[0, 2] == 0) && (xMove != 0 || yMove != 0))
+                    {
+                        aState[0, 0] = xMove * 100;
+                        aState[0, 1] = yMove * 100;
+                        aState[0, 2] = 2;
+                    }
+
+                    if (KeyState[(int)Keys.NumPad7]) { dState[61] = true; } // ←
+                    if (KeyState[(int)Keys.NumPad9]) { dState[58] = true; } // ↑
+                    if (KeyState[(int)Keys.NumPad3]) { dState[60] = true; } // ↓
+                }
+                else
+                {
+                    if (KeyState[(int)Keys.NumPad8]) { dState[58] = true; } // ↑
+                    if (KeyState[(int)Keys.NumPad6]) { dState[59] = true; } // →
+                    if (KeyState[(int)Keys.NumPad2]) { dState[60] = true; } // ↓
+                    if (KeyState[(int)Keys.NumPad4]) { dState[61] = true; } // ←
+                }
+                if (KeyState[(int)Keys.NumPad0]) { dState[1] = true; } // 左クリック
+                if (KeyState[(int)Keys.NumPad5]) { dState[2] = true; } // 右クリック
+                if (KeyState[(int)Keys.Divide]) { dState[14] = true; } // 左タブ
+                if (KeyState[(int)Keys.Multiply]) { dState[15] = true; } // 右タブ
+
+                if (KeyState[(int)Keys.Decimal]) { dState[17] = true; } // Ctrl
+                if (KeyState[(int)Keys.NumPad1]) { dState[17] = true; } // Ctrl
 
                 // 十字キー上下左右 (1:上 / 2:右 / 3:下 / 4:左)
                 if (!(lastState[0x3A] || lastState[0x3B] || lastState[0x3C] || lastState[0x3D]))

@@ -266,9 +266,57 @@ namespace JoyToAny
         {
             InitializeComponent();
 
-#if USEHOTKEY
-            LowLevelHotKey.KeyDown += new EventHandler<LowLevelHotKey.KeybordCaptureEventArgs>(GlobalKeybordCapture_KeyDown);
-#endif
+            LowLevelKeybordCapture.KeyUp += (sender, e) =>
+            {
+                switch (e.KeyCode)
+                {
+                    case (int)Keys.NumPad0: // 96
+                    case (int)Keys.NumPad1: // 97
+                    case (int)Keys.NumPad2: // 98
+                    case (int)Keys.NumPad3: // 99
+                    case (int)Keys.NumPad4: // 100
+                    case (int)Keys.NumPad5: // 101
+                    case (int)Keys.NumPad6: // 102
+                    case (int)Keys.NumPad7: // 103
+                    case (int)Keys.NumPad8: // 104
+                    case (int)Keys.NumPad9: // 105
+                    case (int)Keys.Multiply: // 106
+                    case (int)Keys.Add: // 107
+                    case (int)Keys.Subtract: // 109
+                    case (int)Keys.Decimal: // 110
+                    case (int)Keys.Divide: // 111
+                        JoyPad.KeyState[e.KeyCode] = false;
+                        break;
+                }
+            };
+
+            LowLevelKeybordCapture.KeyDown += (sender, e) =>
+            {
+
+                if (ScreenCapture.IsWindowActive)
+                {
+                    switch (e.KeyCode)
+                    {
+                        case (int)Keys.NumPad0: // 96
+                        case (int)Keys.NumPad1: // 97
+                        case (int)Keys.NumPad2: // 98
+                        case (int)Keys.NumPad3: // 99
+                        case (int)Keys.NumPad4: // 100
+                        case (int)Keys.NumPad5: // 101
+                        case (int)Keys.NumPad6: // 102
+                        case (int)Keys.NumPad7: // 103
+                        case (int)Keys.NumPad8: // 104
+                        case (int)Keys.NumPad9: // 105
+                        case (int)Keys.Multiply: // 106
+                        case (int)Keys.Add: // 107
+                        case (int)Keys.Subtract: // 109
+                        case (int)Keys.Decimal: // 110
+                        case (int)Keys.Divide: // 111
+                        JoyPad.KeyState[e.KeyCode] = true;
+                            break;
+                    }
+                }
+            };
 
 #if WITHMANAGER
             frmEdit = new frmImageMapEditor();
@@ -649,8 +697,8 @@ namespace JoyToAny
             JoyPad.CharaMoveMax = 10;
             JoyPad.FreeMoveMax = 100;
             JoyPad.AnalogFree = 10000;
-            JoyPad.CharaPosition.X = 475;
-            JoyPad.CharaPosition.Y = 340;
+            JoyPad.CharaPosition.X = 480;
+            JoyPad.CharaPosition.Y = 340; // 355;
 
             for (int i = 0; i < JoyPad.ButtonPress.Length; i++)
             {
@@ -757,53 +805,5 @@ namespace JoyToAny
                 ScreenCapture.CaptureMethod = ((MyComboBoxItem)cmbCaptureMethod.SelectedValue).Value;
             }
         }
-
-#if USEHOTKEY
-
-        private byte[] KeyState = new Byte[256];
-
-        /// <summary>
-        /// グローバルホットキーを自前で行うハンドラ
-        /// ※デバッグ時に VisualStudioホスティングプロセス ではフックされないので注意
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GlobalKeybordCapture_KeyDown(object sender, LowLevelHotKey.KeybordCaptureEventArgs e)
-        {
-            w32.GetKeyboardState(KeyState);
-
-            //byte v1 = KeyState[(int)Keys.LControlKey]; // 取り逃し有り
-            //int v2 = w32.GetKeyState((int)Keys.LControlKey); // 取り逃し無し！
-            //Trace.WriteLine(string.Format(@"VK_LControl={0}, VK_RControl={1}, VK_LShift={2}, VK_RShift={3}", KeyState[(int)Keys.LControlKey] & 128, KeyState[(int)Keys.RControlKey] & 128, KeyState[(int)Keys.LShiftKey] & 128, KeyState[(int)Keys.RShiftKey] & 128));
-            //Trace.WriteLine(string.Format(@"VK_LControl={0}, VK_RControl={1}, VK_LShift={2}, VK_RShift={3}", w32.GetKeyState((int)Keys.LControlKey) & 128, w32.GetKeyState((int)Keys.RControlKey) & 128, w32.GetKeyState((int)Keys.LShiftKey) & 128, w32.GetKeyState((int)Keys.RShiftKey) & 128));
-
-            switch (e.KeyCode)
-            {
-                case (int)Keys.Snapshot:
-                    // PrintScreen
-                    Trace.WriteLine("HotKey[ PrintScreen ]");
-                    // 本来の PrintScreen をキャンセル
-                    e.Cancel = true;
-                    break;
-                case (int)Keys.T:
-                    if ((w32.GetKeyState((int)Keys.LControlKey) & 128) == 128 && (w32.GetKeyState((int)Keys.LMenu) & 128) == 128)
-                    {
-                        Trace.WriteLine("HotKey[ Ctrl + Alt + T ]");
-                        // Ctrl + Alt + T
-                    }
-                    break;
-                case (int)Keys.Space:
-                    if ((w32.GetKeyState((int)Keys.LWin) & 128) == 128)
-                    {
-                        Trace.WriteLine("HotKey[ Win + Space ]");
-                        // Win + Space
-                    }
-                    break;
-            }
-        }
-
-#endif
-
-
     }
 }
