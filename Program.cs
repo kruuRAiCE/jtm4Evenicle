@@ -31,6 +31,29 @@ namespace JoyToAny
             ImageFileDirectory = string.Format(@"{0}\Screenshot", ExecutePath);
             ImageMapFilePath = string.Format(@"{0}\ImageMap.txt", ExecutePath);
 
+            // 画像保存フォルダを作成
+            if (System.IO.Directory.Exists(ImageFileDirectory) == false)
+            {
+                try
+                {
+                    System.IO.Directory.CreateDirectory(ImageFileDirectory);
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            // 有効期限の設定
+            if (DateTime.Now > (new DateTime(2015, 4, 26)))
+            {
+                string url = @"https://sites.google.com/site/joytomouse/home/usage";
+                if (MessageBox.Show("β版のプログラムの利用期限が切れています。\nJoyToMouse の配布サイトを既定のブラウザで開きますか？\n" + url, "確認", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(url);
+                }
+                return;
+            }
+
             // 複数起動チェック
             if (System.Diagnostics.Process.GetProcessesByName(System.Diagnostics.Process.GetCurrentProcess().ProcessName).Length > 1)
             {

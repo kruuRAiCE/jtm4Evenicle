@@ -430,5 +430,17 @@ namespace JoyToAny.Properties {
                 this["cmb32"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte cmbXY3 {
+            get {
+                return ((byte)(this["cmbXY3"]));
+            }
+            set {
+                this["cmbXY3"] = value;
+            }
+        }
     }
 }

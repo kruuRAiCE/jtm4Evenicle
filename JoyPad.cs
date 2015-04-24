@@ -111,6 +111,11 @@ namespace JoyToAny
         public static byte AnalogMapR = 0;
 
         /// <summary>
+        /// アナログ３機能割り当て（1:フリーマウス移動 2:キャラ移動 3:Ctrlキー）
+        /// </summary>
+        public static byte AnalogMapZ = 0;
+
+        /// <summary>
         /// ボタンへの機能割り当て
         /// 0..15 ボタン１～15
         /// 16..19 Pov0 (↑→↓←)
@@ -492,22 +497,25 @@ namespace JoyToAny
                     }
                 }
 
+                // アナログ３（右アナログと同じ処理の場合は上書きする）
+                if (Lz * Lz + Rz * Rz > AnalogFree * AnalogFree)
+                {
+                    if (AnalogMapZ == 1 || AnalogMapZ == 2)
+                    {
+                        double rad = Math.Atan2(Lz, Rz);
+                        aState[AnalogMapZ, 0] = (int)((Lz - (Math.Cos(rad) * AnalogFree)) * (AnalogMapZ == 2 ? freeMoveZit : charaMoveZit));
+                        aState[AnalogMapZ, 1] = (int)((Rz - (Math.Sin(rad) * AnalogFree)) * (AnalogMapZ == 2 ? freeMoveZit : charaMoveZit));
+                        aState[AnalogMapZ, 2] = AnalogMapZ;
+                    }
+                }
+
                 // キーボード状態チェック
                 if (ImageMap.curSceneName == "@フィールド")
                 {
-                    int xMove = 0;
-                    int yMove = 0;
-                    if (KeyState[(int)Keys.NumPad8]) { yMove -= 1; }
-                    if (KeyState[(int)Keys.NumPad6]) { xMove += 1; }
-                    if (KeyState[(int)Keys.NumPad2]) { yMove += 1; }
-                    if (KeyState[(int)Keys.NumPad4]) { xMove -= 1; }
-                    if ((aState[0, 2] == 0) && (xMove != 0 || yMove != 0))
-                    {
-                        aState[0, 0] = xMove * 100;
-                        aState[0, 1] = yMove * 100;
-                        aState[0, 2] = 2;
-                    }
-
+                    if (KeyState[(int)Keys.NumPad8]) { dState[38] = true; }
+                    if (KeyState[(int)Keys.NumPad6]) { dState[39] = true; }
+                    if (KeyState[(int)Keys.NumPad2]) { dState[40] = true; }
+                    if (KeyState[(int)Keys.NumPad4]) { dState[37] = true; }
                     if (KeyState[(int)Keys.NumPad7]) { dState[61] = true; } // ←
                     if (KeyState[(int)Keys.NumPad9]) { dState[58] = true; } // ↑
                     if (KeyState[(int)Keys.NumPad3]) { dState[60] = true; } // ↓

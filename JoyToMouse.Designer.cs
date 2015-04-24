@@ -104,7 +104,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSnapShot = new System.Windows.Forms.Button();
-            this.chkWithStop = new System.Windows.Forms.CheckBox();
             this.btnJoyPadCpl = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -117,9 +116,17 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.chkAutoSave = new System.Windows.Forms.CheckBox();
             this.cmbCaptureMethod = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cmbXY3 = new System.Windows.Forms.ComboBox();
+            this.labelXY3 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.chkWithStop = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,7 +146,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb9.Location = new System.Drawing.Point(236, 74);
+            this.cmb9.Location = new System.Drawing.Point(236, 100);
             this.cmb9.Name = "cmb9";
             this.cmb9.Size = new System.Drawing.Size(124, 20);
             this.cmb9.TabIndex = 30;
@@ -147,7 +154,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 77);
+            this.label1.Location = new System.Drawing.Point(12, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 12);
             this.label1.TabIndex = 6;
@@ -156,7 +163,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 103);
+            this.label2.Location = new System.Drawing.Point(12, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 12);
             this.label2.TabIndex = 7;
@@ -165,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 129);
+            this.label3.Location = new System.Drawing.Point(12, 155);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 12);
             this.label3.TabIndex = 8;
@@ -174,7 +181,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 155);
+            this.label4.Location = new System.Drawing.Point(12, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 12);
             this.label4.TabIndex = 9;
@@ -183,7 +190,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 190);
+            this.label5.Location = new System.Drawing.Point(12, 216);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 12);
             this.label5.TabIndex = 10;
@@ -192,7 +199,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 216);
+            this.label6.Location = new System.Drawing.Point(12, 242);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 12);
             this.label6.TabIndex = 11;
@@ -201,7 +208,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 242);
+            this.label7.Location = new System.Drawing.Point(12, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 12);
             this.label7.TabIndex = 12;
@@ -210,7 +217,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 268);
+            this.label8.Location = new System.Drawing.Point(12, 294);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(38, 12);
             this.label8.TabIndex = 13;
@@ -219,7 +226,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(186, 77);
+            this.label9.Location = new System.Drawing.Point(186, 103);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 12);
             this.label9.TabIndex = 22;
@@ -228,7 +235,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(186, 103);
+            this.label10.Location = new System.Drawing.Point(186, 129);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 12);
             this.label10.TabIndex = 23;
@@ -237,7 +244,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(186, 129);
+            this.label11.Location = new System.Drawing.Point(186, 155);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 12);
             this.label11.TabIndex = 24;
@@ -246,7 +253,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(186, 155);
+            this.label12.Location = new System.Drawing.Point(186, 181);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 12);
             this.label12.TabIndex = 25;
@@ -255,7 +262,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(186, 190);
+            this.label13.Location = new System.Drawing.Point(186, 216);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 12);
             this.label13.TabIndex = 26;
@@ -264,7 +271,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(186, 216);
+            this.label14.Location = new System.Drawing.Point(186, 242);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 12);
             this.label14.TabIndex = 27;
@@ -273,7 +280,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(186, 242);
+            this.label15.Location = new System.Drawing.Point(186, 268);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(44, 12);
             this.label15.TabIndex = 28;
@@ -282,7 +289,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(186, 268);
+            this.label16.Location = new System.Drawing.Point(186, 294);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(44, 12);
             this.label16.TabIndex = 29;
@@ -348,7 +355,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb10.Location = new System.Drawing.Point(236, 100);
+            this.cmb10.Location = new System.Drawing.Point(236, 126);
             this.cmb10.Name = "cmb10";
             this.cmb10.Size = new System.Drawing.Size(124, 20);
             this.cmb10.TabIndex = 31;
@@ -369,7 +376,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb11.Location = new System.Drawing.Point(236, 126);
+            this.cmb11.Location = new System.Drawing.Point(236, 152);
             this.cmb11.Name = "cmb11";
             this.cmb11.Size = new System.Drawing.Size(124, 20);
             this.cmb11.TabIndex = 32;
@@ -390,7 +397,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb12.Location = new System.Drawing.Point(236, 152);
+            this.cmb12.Location = new System.Drawing.Point(236, 178);
             this.cmb12.Name = "cmb12";
             this.cmb12.Size = new System.Drawing.Size(124, 20);
             this.cmb12.TabIndex = 33;
@@ -411,7 +418,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb13.Location = new System.Drawing.Point(236, 187);
+            this.cmb13.Location = new System.Drawing.Point(236, 213);
             this.cmb13.Name = "cmb13";
             this.cmb13.Size = new System.Drawing.Size(124, 20);
             this.cmb13.TabIndex = 34;
@@ -432,7 +439,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb14.Location = new System.Drawing.Point(236, 213);
+            this.cmb14.Location = new System.Drawing.Point(236, 239);
             this.cmb14.Name = "cmb14";
             this.cmb14.Size = new System.Drawing.Size(124, 20);
             this.cmb14.TabIndex = 35;
@@ -453,7 +460,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb15.Location = new System.Drawing.Point(236, 239);
+            this.cmb15.Location = new System.Drawing.Point(236, 265);
             this.cmb15.Name = "cmb15";
             this.cmb15.Size = new System.Drawing.Size(124, 20);
             this.cmb15.TabIndex = 36;
@@ -474,7 +481,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb16.Location = new System.Drawing.Point(236, 265);
+            this.cmb16.Location = new System.Drawing.Point(236, 291);
             this.cmb16.Name = "cmb16";
             this.cmb16.Size = new System.Drawing.Size(124, 20);
             this.cmb16.TabIndex = 37;
@@ -495,7 +502,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb8.Location = new System.Drawing.Point(56, 265);
+            this.cmb8.Location = new System.Drawing.Point(56, 291);
             this.cmb8.Name = "cmb8";
             this.cmb8.Size = new System.Drawing.Size(124, 20);
             this.cmb8.TabIndex = 21;
@@ -516,7 +523,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb7.Location = new System.Drawing.Point(56, 239);
+            this.cmb7.Location = new System.Drawing.Point(56, 265);
             this.cmb7.Name = "cmb7";
             this.cmb7.Size = new System.Drawing.Size(124, 20);
             this.cmb7.TabIndex = 20;
@@ -537,7 +544,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb6.Location = new System.Drawing.Point(56, 213);
+            this.cmb6.Location = new System.Drawing.Point(56, 239);
             this.cmb6.Name = "cmb6";
             this.cmb6.Size = new System.Drawing.Size(124, 20);
             this.cmb6.TabIndex = 19;
@@ -558,7 +565,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb5.Location = new System.Drawing.Point(56, 187);
+            this.cmb5.Location = new System.Drawing.Point(56, 213);
             this.cmb5.Name = "cmb5";
             this.cmb5.Size = new System.Drawing.Size(124, 20);
             this.cmb5.TabIndex = 18;
@@ -579,7 +586,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb4.Location = new System.Drawing.Point(56, 152);
+            this.cmb4.Location = new System.Drawing.Point(56, 178);
             this.cmb4.Name = "cmb4";
             this.cmb4.Size = new System.Drawing.Size(124, 20);
             this.cmb4.TabIndex = 17;
@@ -600,7 +607,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb3.Location = new System.Drawing.Point(56, 126);
+            this.cmb3.Location = new System.Drawing.Point(56, 152);
             this.cmb3.Name = "cmb3";
             this.cmb3.Size = new System.Drawing.Size(124, 20);
             this.cmb3.TabIndex = 16;
@@ -621,7 +628,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb2.Location = new System.Drawing.Point(56, 100);
+            this.cmb2.Location = new System.Drawing.Point(56, 126);
             this.cmb2.Name = "cmb2";
             this.cmb2.Size = new System.Drawing.Size(124, 20);
             this.cmb2.TabIndex = 15;
@@ -631,7 +638,7 @@
             this.cmb1.DisplayMember = "dispValue";
             this.cmb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb1.FormattingEnabled = true;
-            this.cmb1.Location = new System.Drawing.Point(56, 74);
+            this.cmb1.Location = new System.Drawing.Point(56, 100);
             this.cmb1.Name = "cmb1";
             this.cmb1.Size = new System.Drawing.Size(124, 20);
             this.cmb1.TabIndex = 14;
@@ -659,7 +666,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb24.Location = new System.Drawing.Point(416, 265);
+            this.cmb24.Location = new System.Drawing.Point(416, 291);
             this.cmb24.Name = "cmb24";
             this.cmb24.Size = new System.Drawing.Size(124, 20);
             this.cmb24.TabIndex = 53;
@@ -680,7 +687,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb23.Location = new System.Drawing.Point(416, 239);
+            this.cmb23.Location = new System.Drawing.Point(416, 265);
             this.cmb23.Name = "cmb23";
             this.cmb23.Size = new System.Drawing.Size(124, 20);
             this.cmb23.TabIndex = 52;
@@ -701,7 +708,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb22.Location = new System.Drawing.Point(416, 213);
+            this.cmb22.Location = new System.Drawing.Point(416, 239);
             this.cmb22.Name = "cmb22";
             this.cmb22.Size = new System.Drawing.Size(124, 20);
             this.cmb22.TabIndex = 51;
@@ -722,7 +729,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb21.Location = new System.Drawing.Point(416, 187);
+            this.cmb21.Location = new System.Drawing.Point(416, 213);
             this.cmb21.Name = "cmb21";
             this.cmb21.Size = new System.Drawing.Size(124, 20);
             this.cmb21.TabIndex = 50;
@@ -743,7 +750,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb20.Location = new System.Drawing.Point(416, 152);
+            this.cmb20.Location = new System.Drawing.Point(416, 178);
             this.cmb20.Name = "cmb20";
             this.cmb20.Size = new System.Drawing.Size(124, 20);
             this.cmb20.TabIndex = 49;
@@ -764,7 +771,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb19.Location = new System.Drawing.Point(416, 126);
+            this.cmb19.Location = new System.Drawing.Point(416, 152);
             this.cmb19.Name = "cmb19";
             this.cmb19.Size = new System.Drawing.Size(124, 20);
             this.cmb19.TabIndex = 48;
@@ -785,7 +792,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb18.Location = new System.Drawing.Point(416, 100);
+            this.cmb18.Location = new System.Drawing.Point(416, 126);
             this.cmb18.Name = "cmb18";
             this.cmb18.Size = new System.Drawing.Size(124, 20);
             this.cmb18.TabIndex = 47;
@@ -806,7 +813,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb17.Location = new System.Drawing.Point(416, 74);
+            this.cmb17.Location = new System.Drawing.Point(416, 100);
             this.cmb17.Name = "cmb17";
             this.cmb17.Size = new System.Drawing.Size(124, 20);
             this.cmb17.TabIndex = 46;
@@ -827,7 +834,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb32.Location = new System.Drawing.Point(596, 265);
+            this.cmb32.Location = new System.Drawing.Point(596, 291);
             this.cmb32.Name = "cmb32";
             this.cmb32.Size = new System.Drawing.Size(124, 20);
             this.cmb32.TabIndex = 69;
@@ -848,7 +855,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb31.Location = new System.Drawing.Point(596, 239);
+            this.cmb31.Location = new System.Drawing.Point(596, 265);
             this.cmb31.Name = "cmb31";
             this.cmb31.Size = new System.Drawing.Size(124, 20);
             this.cmb31.TabIndex = 68;
@@ -869,7 +876,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb30.Location = new System.Drawing.Point(596, 213);
+            this.cmb30.Location = new System.Drawing.Point(596, 239);
             this.cmb30.Name = "cmb30";
             this.cmb30.Size = new System.Drawing.Size(124, 20);
             this.cmb30.TabIndex = 67;
@@ -890,7 +897,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb29.Location = new System.Drawing.Point(596, 187);
+            this.cmb29.Location = new System.Drawing.Point(596, 213);
             this.cmb29.Name = "cmb29";
             this.cmb29.Size = new System.Drawing.Size(124, 20);
             this.cmb29.TabIndex = 66;
@@ -911,7 +918,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb28.Location = new System.Drawing.Point(596, 152);
+            this.cmb28.Location = new System.Drawing.Point(596, 178);
             this.cmb28.Name = "cmb28";
             this.cmb28.Size = new System.Drawing.Size(124, 20);
             this.cmb28.TabIndex = 65;
@@ -932,7 +939,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb27.Location = new System.Drawing.Point(596, 126);
+            this.cmb27.Location = new System.Drawing.Point(596, 152);
             this.cmb27.Name = "cmb27";
             this.cmb27.Size = new System.Drawing.Size(124, 20);
             this.cmb27.TabIndex = 64;
@@ -953,7 +960,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb26.Location = new System.Drawing.Point(596, 100);
+            this.cmb26.Location = new System.Drawing.Point(596, 126);
             this.cmb26.Name = "cmb26";
             this.cmb26.Size = new System.Drawing.Size(124, 20);
             this.cmb26.TabIndex = 63;
@@ -961,7 +968,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(546, 268);
+            this.label32.Location = new System.Drawing.Point(546, 294);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(44, 12);
             this.label32.TabIndex = 61;
@@ -970,7 +977,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(546, 242);
+            this.label31.Location = new System.Drawing.Point(546, 268);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(44, 12);
             this.label31.TabIndex = 60;
@@ -979,7 +986,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(546, 216);
+            this.label30.Location = new System.Drawing.Point(546, 242);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(44, 12);
             this.label30.TabIndex = 59;
@@ -988,7 +995,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(546, 190);
+            this.label29.Location = new System.Drawing.Point(546, 216);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(44, 12);
             this.label29.TabIndex = 58;
@@ -997,7 +1004,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(546, 155);
+            this.label28.Location = new System.Drawing.Point(546, 181);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(44, 12);
             this.label28.TabIndex = 57;
@@ -1006,7 +1013,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(546, 129);
+            this.label27.Location = new System.Drawing.Point(546, 155);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(44, 12);
             this.label27.TabIndex = 56;
@@ -1015,7 +1022,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(546, 103);
+            this.label26.Location = new System.Drawing.Point(546, 129);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(44, 12);
             this.label26.TabIndex = 55;
@@ -1024,7 +1031,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(546, 77);
+            this.label25.Location = new System.Drawing.Point(546, 103);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 12);
             this.label25.TabIndex = 54;
@@ -1033,7 +1040,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(366, 268);
+            this.label24.Location = new System.Drawing.Point(366, 294);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(44, 12);
             this.label24.TabIndex = 45;
@@ -1042,7 +1049,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(366, 242);
+            this.label23.Location = new System.Drawing.Point(366, 268);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(44, 12);
             this.label23.TabIndex = 44;
@@ -1051,7 +1058,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(366, 216);
+            this.label22.Location = new System.Drawing.Point(366, 242);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(44, 12);
             this.label22.TabIndex = 43;
@@ -1060,7 +1067,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(366, 190);
+            this.label21.Location = new System.Drawing.Point(366, 216);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(44, 12);
             this.label21.TabIndex = 42;
@@ -1069,7 +1076,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(366, 155);
+            this.label20.Location = new System.Drawing.Point(366, 181);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 12);
             this.label20.TabIndex = 41;
@@ -1078,7 +1085,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(366, 129);
+            this.label19.Location = new System.Drawing.Point(366, 155);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(44, 12);
             this.label19.TabIndex = 40;
@@ -1087,7 +1094,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(366, 103);
+            this.label18.Location = new System.Drawing.Point(366, 129);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 12);
             this.label18.TabIndex = 39;
@@ -1096,7 +1103,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(366, 77);
+            this.label17.Location = new System.Drawing.Point(366, 103);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(44, 12);
             this.label17.TabIndex = 38;
@@ -1118,7 +1125,7 @@
             "←移動",
             "Ctrl キー",
             "画面PNG保存"});
-            this.cmb25.Location = new System.Drawing.Point(596, 74);
+            this.cmb25.Location = new System.Drawing.Point(596, 100);
             this.cmb25.Name = "cmb25";
             this.cmb25.Size = new System.Drawing.Size(124, 20);
             this.cmb25.TabIndex = 62;
@@ -1144,7 +1151,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(564, 359);
+            this.btnSave.Location = new System.Drawing.Point(564, 336);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 70;
@@ -1154,7 +1161,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(645, 359);
+            this.btnReset.Location = new System.Drawing.Point(645, 336);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 71;
@@ -1164,25 +1171,13 @@
             // 
             // btnSnapShot
             // 
-            this.btnSnapShot.Location = new System.Drawing.Point(12, 359);
+            this.btnSnapShot.Location = new System.Drawing.Point(12, 336);
             this.btnSnapShot.Name = "btnSnapShot";
             this.btnSnapShot.Size = new System.Drawing.Size(141, 23);
             this.btnSnapShot.TabIndex = 72;
             this.btnSnapShot.Text = "この設定画面をPNG保存";
             this.btnSnapShot.UseVisualStyleBackColor = true;
             this.btnSnapShot.Click += new System.EventHandler(this.btnSnapShot_Click);
-            // 
-            // chkWithStop
-            // 
-            this.chkWithStop.AutoSize = true;
-            this.chkWithStop.Enabled = false;
-            this.chkWithStop.Location = new System.Drawing.Point(470, 18);
-            this.chkWithStop.Name = "chkWithStop";
-            this.chkWithStop.Size = new System.Drawing.Size(179, 16);
-            this.chkWithStop.TabIndex = 73;
-            this.chkWithStop.Text = "このウィンドウ表示中は信号停止";
-            this.chkWithStop.UseVisualStyleBackColor = true;
-            this.chkWithStop.CheckedChanged += new System.EventHandler(this.chkWithStop_CheckedChanged);
             // 
             // btnJoyPadCpl
             // 
@@ -1255,7 +1250,7 @@
             // 
             // lblSysInfo
             // 
-            this.lblSysInfo.Location = new System.Drawing.Point(337, 349);
+            this.lblSysInfo.Location = new System.Drawing.Point(337, 326);
             this.lblSysInfo.Name = "lblSysInfo";
             this.lblSysInfo.Size = new System.Drawing.Size(221, 36);
             this.lblSysInfo.TabIndex = 82;
@@ -1264,7 +1259,7 @@
             // chkAlwaysOnTop
             // 
             this.chkAlwaysOnTop.AutoSize = true;
-            this.chkAlwaysOnTop.Location = new System.Drawing.Point(184, 349);
+            this.chkAlwaysOnTop.Location = new System.Drawing.Point(184, 326);
             this.chkAlwaysOnTop.Name = "chkAlwaysOnTop";
             this.chkAlwaysOnTop.Size = new System.Drawing.Size(114, 16);
             this.chkAlwaysOnTop.TabIndex = 83;
@@ -1282,7 +1277,7 @@
             // chkAutoSave
             // 
             this.chkAutoSave.AutoSize = true;
-            this.chkAutoSave.Location = new System.Drawing.Point(184, 370);
+            this.chkAutoSave.Location = new System.Drawing.Point(184, 347);
             this.chkAutoSave.Name = "chkAutoSave";
             this.chkAutoSave.Size = new System.Drawing.Size(134, 16);
             this.chkAutoSave.TabIndex = 84;
@@ -1299,28 +1294,51 @@
             this.cmbCaptureMethod.TabIndex = 85;
             this.cmbCaptureMethod.SelectedIndexChanged += new System.EventHandler(this.cmbCaptureMethod_SelectedIndexChanged);
             // 
-            // groupBox1
+            // cmbXY3
             // 
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Controls.Add(this.chkWithStop);
-            this.groupBox1.Location = new System.Drawing.Point(18, 297);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(706, 43);
-            this.groupBox1.TabIndex = 86;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "イブニクル固有設定";
+            this.cmbXY3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbXY3.FormattingEnabled = true;
+            this.cmbXY3.Items.AddRange(new object[] {
+            "使用しない",
+            "アスタ移動",
+            "マウス移動"});
+            this.cmbXY3.Location = new System.Drawing.Point(596, 64);
+            this.cmbXY3.Name = "cmbXY3";
+            this.cmbXY3.Size = new System.Drawing.Size(124, 20);
+            this.cmbXY3.TabIndex = 87;
             // 
-            // checkBox2
+            // labelXY3
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(247, 18);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(192, 16);
-            this.checkBox2.TabIndex = 75;
-            this.checkBox2.Text = "戦闘開始時に自動でオート戦闘On";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.labelXY3.AutoSize = true;
+            this.labelXY3.Location = new System.Drawing.Point(533, 67);
+            this.labelXY3.Name = "labelXY3";
+            this.labelXY3.Size = new System.Drawing.Size(50, 12);
+            this.labelXY3.TabIndex = 88;
+            this.labelXY3.Text = "アナログ３";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(12, 376);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(125, 12);
+            this.linkLabel1.TabIndex = 89;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Tag = "https://sites.google.com/site/joytomouse/home/usage";
+            this.linkLabel1.Text = "JoyToMouse 配布サイト";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_Clicked);
+            // 
+            // chkWithStop
+            // 
+            this.chkWithStop.AutoSize = true;
+            this.chkWithStop.Enabled = false;
+            this.chkWithStop.Location = new System.Drawing.Point(470, 18);
+            this.chkWithStop.Name = "chkWithStop";
+            this.chkWithStop.Size = new System.Drawing.Size(179, 16);
+            this.chkWithStop.TabIndex = 73;
+            this.chkWithStop.Text = "このウィンドウ表示中は信号停止";
+            this.chkWithStop.UseVisualStyleBackColor = true;
+            this.chkWithStop.CheckedChanged += new System.EventHandler(this.chkWithStop_CheckedChanged);
             // 
             // checkBox1
             // 
@@ -1333,11 +1351,84 @@
             this.checkBox1.Text = "右クリックで戻れるなら戻る系ボタン無効";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(247, 18);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(192, 16);
+            this.checkBox2.TabIndex = 75;
+            this.checkBox2.Text = "戦闘開始時に自動でオート戦闘On";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chkWithStop);
+            this.groupBox1.Location = new System.Drawing.Point(12, 421);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(706, 43);
+            this.groupBox1.TabIndex = 86;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "イブニクル固有設定";
+            this.groupBox1.Visible = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(149, 376);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(572, 12);
+            this.label36.TabIndex = 90;
+            this.label36.Text = "このツールについてアリスソフトさんに問い合わせないで下さい。　このプログラムはβ版のため4月26日以降は使えなくなります";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(12, 397);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(67, 12);
+            this.linkLabel2.TabIndex = 91;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Tag = "http://ux.getuploader.com/JoyToMouse4Evenicle/";
+            this.linkLabel2.Text = "画像あぷろだ";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_Clicked);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(85, 397);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(389, 12);
+            this.label37.TabIndex = 92;
+            this.label37.Text = "カーソル移動が効かない画面があれば画面キャプチャをしてアプロダに報告願います";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(485, 397);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(235, 12);
+            this.linkLabel3.TabIndex = 93;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Tag = "http://aoi.bbspink.com/test/read.cgi/hgame2/1429585882/";
+            this.linkLabel3.Text = "バグ報告はとりあえずイブニクルスレにお願いします";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_Clicked);
+            // 
             // JoyToMouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 393);
+            this.ClientSize = new System.Drawing.Size(732, 418);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.labelXY3);
+            this.Controls.Add(this.cmbXY3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbCaptureMethod);
             this.Controls.Add(this.chkAutoSave);
@@ -1426,7 +1517,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "JoyToMouse";
-            this.Text = "JoyToMouse for イブニクル";
+            this.Text = "JoyToMouse for イブニクル (現在このツールはβ版です)";
             this.Load += new System.EventHandler(this.frmJoyPadConfig_Load);
             this.VisibleChanged += new System.EventHandler(this.frmJoyPadConfig_VisibleChanged);
             this.Resize += new System.EventHandler(this.frmJoyToMouse_Resize);
@@ -1513,7 +1604,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSnapShot;
-        private System.Windows.Forms.CheckBox chkWithStop;
         private System.Windows.Forms.Button btnJoyPadCpl;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
@@ -1526,8 +1616,16 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.CheckBox chkAutoSave;
         private System.Windows.Forms.ComboBox cmbCaptureMethod;
-        private System.Windows.Forms.GroupBox groupBox1;
+        internal System.Windows.Forms.ComboBox cmbXY3;
+        private System.Windows.Forms.Label labelXY3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.CheckBox chkWithStop;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

@@ -104,5 +104,8 @@
     <Setting Name="cmb32" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="cmbXY3" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

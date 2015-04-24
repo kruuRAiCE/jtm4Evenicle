@@ -152,9 +152,13 @@ namespace JoyToAny
                     {
                         JoyToAny.Properties.Settings.Default["cmbXY1"] = config["cmbXY1"];
                     }
-                    if (config.ContainsKey("cmbXY1"))
+                    if (config.ContainsKey("cmbXY2"))
                     {
                         JoyToAny.Properties.Settings.Default["cmbXY2"] = config["cmbXY2"];
+                    }
+                    if (config.ContainsKey("cmbXY3"))
+                    {
+                        JoyToAny.Properties.Settings.Default["cmbXY3"] = config["cmbXY3"];
                     }
 
                     if (config.ContainsKey("cmbCaptureInterval"))
@@ -312,7 +316,7 @@ namespace JoyToAny
                         case (int)Keys.Subtract: // 109
                         case (int)Keys.Decimal: // 110
                         case (int)Keys.Divide: // 111
-                        JoyPad.KeyState[e.KeyCode] = true;
+                            JoyPad.KeyState[e.KeyCode] = true;
                             break;
                     }
                 }
@@ -329,10 +333,10 @@ namespace JoyToAny
             configPath = string.Format(@"{0}\PadConfig.txt", Program.ExecutePath);
 
             buttons = new ComboBox[] { cmb1, cmb2, cmb3, cmb4, cmb5, cmb6, cmb7, cmb8, cmb9, cmb10, cmb11, cmb12, cmb13, cmb14, cmb15, cmb16, cmb17, cmb18, cmb19, cmb20, cmb21, cmb22, cmb23, cmb24, cmb25, cmb26, cmb27, cmb28, cmb29, cmb30, cmb31, cmb32 };
-            ana_xys = new ComboBox[] { cmbXY1, cmbXY2 };
+            ana_xys = new ComboBox[] { cmbXY1, cmbXY2, cmbXY3 };
 
             button_l = new Label[] { label1, label2, label3, label4, label5, label6, label7, label8, label9, label10, label11, label12, label13, label14, label15, label16, label17, label18, label19, label20, label21, label22, label23, label24, label25, label26, label27, label28, label29, label30, label31, label32 };
-            ana_xy_l = new Label[] { labelXY1, labelXY2 };
+            ana_xy_l = new Label[] { labelXY1, labelXY2, labelXY3 };
 
             DigitalOptions.Add(new MyComboBoxItem("何もしない", 0));
             DigitalOptions.Add(new MyComboBoxItem("左クリック", 1));
@@ -371,6 +375,7 @@ namespace JoyToAny
             {
                 bool Lana = false;
                 bool Rana = false;
+                bool Zana = false;
                 for (int i = 0; i < JoyPad.ButtonPress.Length; i++)
                 {
                     switch (i)
@@ -392,6 +397,10 @@ namespace JoyToAny
                         default:
                             if (JoyPad.ButtonPress[i])
                             {
+                                if (i >= 28 && i <= 31)
+                                {
+                                    Zana = true;
+                                }
                                 if (button_l[i].BackColor != Color.Red)
                                 {
                                     button_l[i].BorderStyle = BorderStyle.FixedSingle;
@@ -436,6 +445,21 @@ namespace JoyToAny
                     if (ana_xy_l[1].BackColor != SystemColors.Control)
                     {
                         ana_xy_l[1].BackColor = SystemColors.Control;
+                    }
+                }
+                if (Zana)
+                {
+                    if (ana_xy_l[2].BackColor != Color.Red)
+                    {
+                        ana_xy_l[2].BorderStyle = BorderStyle.FixedSingle;
+                        ana_xy_l[2].BackColor = Color.Red;
+                    }
+                }
+                else
+                {
+                    if (ana_xy_l[2].BackColor != SystemColors.Control)
+                    {
+                        ana_xy_l[2].BackColor = SystemColors.Control;
                     }
                 }
 
@@ -571,7 +595,7 @@ namespace JoyToAny
                 if (cmb.Tag is int)
                 {
                     int id = (int)cmb.Tag;
-                    if (id < 0 || id >= 34)
+                    if (id < 0 || id >= 35)
                     {
                         return;
                     }
@@ -582,6 +606,9 @@ namespace JoyToAny
                             break;
                         case 33:
                             JoyPad.AnalogMapR = selectedValue;
+                            break;
+                        case 34:
+                            JoyPad.AnalogMapZ = selectedValue;
                             break;
                         default:
                             if (id < JoyPad.BtnMap.Length)
@@ -670,7 +697,7 @@ namespace JoyToAny
         private void cmbCaptureInterval_SelectedIndexChanged(object sender, EventArgs e)
         {
             int interval = int.Parse((string)cmbCaptureInterval.SelectedItem);
-            ScreenCapture.Start("", "EvenicleTrial", interval);
+            ScreenCapture.Start("", "イブニクル", interval);
         }
 
         /// <summary>
@@ -693,6 +720,11 @@ namespace JoyToAny
             JoyPad.USE_KEYS[(byte)Keys.Escape] = true;
             JoyPad.USE_KEYS[(byte)Keys.Home] = true;
             JoyPad.USE_KEYS[(byte)Keys.PageUp] = true;
+
+            JoyPad.USE_KEYS[(byte)Keys.Up] = true;
+            JoyPad.USE_KEYS[(byte)Keys.Right] = true;
+            JoyPad.USE_KEYS[(byte)Keys.Down] = true;
+            JoyPad.USE_KEYS[(byte)Keys.Left] = true;
 
             JoyPad.CharaMoveMax = 10;
             JoyPad.FreeMoveMax = 100;
@@ -803,6 +835,19 @@ namespace JoyToAny
             if (cmbCaptureMethod.SelectedValue is MyComboBoxItem)
             {
                 ScreenCapture.CaptureMethod = ((MyComboBoxItem)cmbCaptureMethod.SelectedValue).Value;
+            }
+        }
+
+        private void linkLabel_Clicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel obj = sender as LinkLabel;
+            if (obj != null)
+            {
+                string url = (string)obj.Tag;
+                if (MessageBox.Show("既定のブラウザで以下のリンクを開きます\n" + url, "確認", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(url);
+                }
             }
         }
     }
